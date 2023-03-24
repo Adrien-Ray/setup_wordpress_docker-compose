@@ -13,3 +13,4 @@
 
  - [X] add phpMyAdmin service
  - [ ] add wp-cli service ?
+ - [ ] possibility use "frontity"
