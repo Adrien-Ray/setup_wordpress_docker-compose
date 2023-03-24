@@ -16,6 +16,19 @@ services:
     volumes:
       - ./wordpress:/var/www/html
 
+  pma:
+    image: phpmyadmin
+    container_name: ${PROJECT_NAME}_phpmyadmin
+    environment:
+      # https://docs.phpmyadmin.net/en/latest/setup.html#docker-environment-variables
+      PMA_HOST: db
+      PMA_PORT: 3306
+      UPLOAD_LIMIT: 1024M
+    ports:
+      - "8081:80"
+    links:
+      - db:db
+
   db:
     image: mysql:5.7
     container_name: ${PROJECT_NAME}_sql
